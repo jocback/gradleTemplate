@@ -12,6 +12,8 @@
 <html>
 <head>
     <tiles:insertAttribute name="include"/>
+
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js<tiles:getAsString name="includeJs" />.js"></script>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>

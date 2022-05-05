@@ -10,3 +10,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/dashboard.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/signin.css"/>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery/js/jquery.serializeObject.js"></script>

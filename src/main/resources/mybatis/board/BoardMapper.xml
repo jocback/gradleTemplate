@@ -5,4 +5,17 @@
     <select id="selectTest" resultType="string">
         select 'test'
     </select>
+
+    <select id="selectBoardList" resultType="map">
+        SELECT BOARD_NO
+             , BOARD_TYPE
+             , TITLE
+             , CONTENTS
+             , USER_ID
+             , CREATED_TIME
+             , UPDATED_TIME
+             , LIKES
+             , COUNTS
+        FROM BOARD
+    </select>
 </mapper>

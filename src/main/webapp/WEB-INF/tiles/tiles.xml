@@ -24,5 +24,6 @@
 
     <definition name="*/*" extends="layout-tiles">
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+        <put-attribute name="includeJs" value="/{1}/{2}"/>
     </definition>
 </tiles-definitions>

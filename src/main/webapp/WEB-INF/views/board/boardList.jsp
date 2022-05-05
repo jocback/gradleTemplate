@@ -13,21 +13,13 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
+                <th>타입</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성자</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-            </tr>
+            <tbody id="tbody_boardList">
             </tbody>
         </table>
     </div>
