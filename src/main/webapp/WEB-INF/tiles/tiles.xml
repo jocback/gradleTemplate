@@ -13,6 +13,15 @@
         <put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
     </definition>
 
+    <definition name="login-tiles" template="/WEB-INF/tiles/layouts/layout-login.jsp">
+        <put-attribute name="include" value="/WEB-INF/tiles/layouts/include.jsp"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+
+    <definition name="login/*" extends="login-tiles">
+        <put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp"/>
+    </definition>
+
     <definition name="*/*" extends="layout-tiles">
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
     </definition>

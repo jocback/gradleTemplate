@@ -18,7 +18,7 @@ public class BoardController {
         ModelAndView mv = new ModelAndView();
         String str = boardService.selectTest();
         System.out.println(str);
-        mv.setViewName("/board/boardList");
+        mv.setViewName("board/boardList");
         return mv;
     }
 }
