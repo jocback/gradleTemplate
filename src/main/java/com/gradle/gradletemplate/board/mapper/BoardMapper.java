@@ -11,4 +11,6 @@ public interface BoardMapper {
     String selectTest();
 
     List<Map<String, Object>> selectBoardList();
+
+    Map<String, Object> selectBoardDetail(String boardNo);
 }

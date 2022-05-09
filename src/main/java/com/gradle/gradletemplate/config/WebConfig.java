@@ -1,32 +1,27 @@
 package com.gradle.gradletemplate.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesView;
-import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Bean
-    public TilesConfigurer tilesConfigurer() {
-        final TilesConfigurer configurer = new TilesConfigurer();
+    @Autowired
+    InterceptorConfig interceptorConfig;
 
-        configurer.setDefinitions(new String[] {
-                "/WEB-INF/tiles/tiles.xml"
-        });
-        configurer.setCheckRefresh(true);
-        return configurer;
-    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(interceptorConfig)
+                .addPathPatterns("/**/*")
+                .excludePathPatterns("/**/*.js")
+                .excludePathPatterns("/**/*.css")
+                .excludePathPatterns("/**/**/*.js")
+                .excludePathPatterns("/**/**/*.css")
+                .excludePathPatterns("/**/**/*.map")
+                .excludePathPatterns("/*.ico");
 
-    @Bean
-    public TilesViewResolver tilesViewResolver() {
-        final TilesViewResolver tilesViewResolver = new TilesViewResolver();
-        tilesViewResolver.setViewClass(TilesView.class);
-        tilesViewResolver.setOrder(1);
-        return tilesViewResolver;
+
     }
 }

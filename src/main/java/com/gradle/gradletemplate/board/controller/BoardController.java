@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class BoardController {
         List<Map<String, Object>> boardList = new ArrayList<Map<String, Object>>();
         boardList = boardService.selectBoardList();
         mv.addObject("boardList", boardList);
+        mv.setViewName("jsonView");
+        return mv;
+    }
+
+    @RequestMapping(value = "/board/boardDetail", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView boardDetail() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("board/boardDetail");
+        return mv;
+    }
+
+    @RequestMapping(value = "/board/selectBoardDetail", method = {RequestMethod.POST, RequestMethod.GET})
+    @ResponseBody
+    public ModelAndView selectBoardDetail(String boardNo) {
+        ModelAndView mv = new ModelAndView();
+        Map<String, Object> boardMap = new HashMap<String, Object>();
+        boardMap = boardService.selectBoardDetail(boardNo);
+        mv.addObject("boardMap", boardMap);
         mv.setViewName("jsonView");
         return mv;
     }

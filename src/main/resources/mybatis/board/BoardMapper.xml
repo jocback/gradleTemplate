@@ -18,4 +18,18 @@
              , COUNTS
         FROM BOARD
     </select>
+
+    <select id="selectBoardDetail" parameterType="string" resultType="map">
+        SELECT BOARD_NO
+             , BOARD_TYPE
+             , TITLE
+             , CONTENTS
+             , USER_ID
+             , CREATED_TIME
+             , UPDATED_TIME
+             , LIKES
+             , COUNTS
+        FROM BOARD
+        WHERE BOARD_NO = #{boardNo}
+    </select>
 </mapper>

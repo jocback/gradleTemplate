@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,5 +23,11 @@ public class BoardService {
         List<Map<String, Object>> maplist = new ArrayList<Map<String, Object>>();
         maplist = boardMapper.selectBoardList();
         return maplist;
+    }
+
+    public Map<String, Object> selectBoardDetail(String boardNo) {
+        Map<String, Object> boardMap = new HashMap<String, Object>();
+        boardMap = boardMapper.selectBoardDetail(boardNo);
+        return boardMap;
     }
 }

@@ -6,11 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-offset-3 col-sm-9 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Dashboard</h1>
 
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th>타입</th>
@@ -23,4 +23,15 @@
             </tbody>
         </table>
     </div>
+    <div class="pull-right">
+        <button type="button" class="btn btn-sm btn-primary">등록</button>
+    </div>
+
+    <form id="frm_test" action="/board/boardList">
+        <input type="hidden" name="test1" value="t1"/>
+        <input type="hidden" name="test2" value="t2"/>
+        <input type="hidden" name="test3" value="t3"/>
+        <input type="hidden" name="test3" value="t4"/>
+    </form>
+
 </div>
