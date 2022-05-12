@@ -1,5 +1,6 @@
 package com.gradle.gradletemplate.board.mapper;
 
+import com.gradle.gradletemplate.board.vo.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -10,7 +11,9 @@ public interface BoardMapper {
     // 샘플 조회
     String selectTest();
 
-    List<Map<String, Object>> selectBoardList();
+    int getBoardCnt();
+
+    List<BoardVO> selectBoardList();
 
     Map<String, Object> selectBoardDetail(String boardNo);
 }

@@ -21,7 +21,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/**/**/*.css")
                 .excludePathPatterns("/**/**/*.map")
                 .excludePathPatterns("/*.ico");
-
-
     }
 }

@@ -6,7 +6,12 @@
         select 'test'
     </select>
 
-    <select id="selectBoardList" resultType="map">
+    <select id="getBoardCnt" resultType="int">
+        SELECT COUNT(*) CNT
+        FROM BOARD
+    </select>
+
+    <select id="selectBoardList" resultType="com.gradle.gradletemplate.board.vo.BoardVO">
         SELECT BOARD_NO
              , BOARD_TYPE
              , TITLE

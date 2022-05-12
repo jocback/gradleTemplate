@@ -18,8 +18,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/holder.min.js"></script>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/common/js/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/common/js/paging.js"></script>
 
 <script type="text/javascript">
     var jsonParam = JSON.parse('${jsonStr}');
-
 </script>

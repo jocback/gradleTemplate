@@ -5,7 +5,10 @@ var boardList = {
     },
     bind : function() {
     },
-    selectBoardList() {
+    selectBoardList(pageNo) {
+        var param = {
+            pageNo : pageNo
+        }
         $.ajax({
             url : "/board/selectBoardList",
             type: "post",
@@ -14,21 +17,22 @@ var boardList = {
             success : function(res) {
                 console.log('boardTest');
                 console.log(res);
-                boardList.drawBoardList(res.boardList);
+                boardList.drawBoardList(res.boardMap);
             }
         });
     },
     drawBoardList(dat) {
         var html = '';
-        $.each(dat, function(i, v){
+        $.each(dat.boardList, function(i, v){
             html += '<tr>';
-            html += '   <td onclick="boardList.goBoardDetail(\''+v.BOARD_NO+'\')">'+v.BOARD_TYPE+'</td>';
-            html += '   <td>'+v.TITLE+'</td>';
-            html += '   <td>'+v.CONTENTS+'</td>';
-            html += '   <td>'+v.USER_ID+'</td>';
+            html += '   <td onclick="boardList.goBoardDetail(\''+v.boardNo+'\')">'+v.boardType+'</td>';
+            html += '   <td>'+v.title+'</td>';
+            html += '   <td>'+v.contents+'</td>';
+            html += '   <td>'+v.userId+'</td>';
             html += '</tr>';
         });
         $("#tbody_boardList").html(html);
+        paging.drawPage($("#nav_page"), 'boardList.selectBoardList', 1, dat.boardCnt);
 
     },
     // 게시판 상세보기

@@ -1,6 +1,7 @@
 package com.gradle.gradletemplate.board.service;
 
 import com.gradle.gradletemplate.board.mapper.BoardMapper;
+import com.gradle.gradletemplate.board.vo.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,15 @@ public class BoardService {
         return boardMapper.selectTest();
     }
 
-    public List<Map<String, Object>> selectBoardList() {
-        List<Map<String, Object>> maplist = new ArrayList<Map<String, Object>>();
-        maplist = boardMapper.selectBoardList();
-        return maplist;
+    public Map<String, Object> selectBoardList() {
+        List<BoardVO> boardList = new ArrayList<BoardVO>();
+        int boardCnt = boardMapper.getBoardCnt();
+        boardList = boardMapper.selectBoardList();
+        Map<String, Object> boardMap = new HashMap<>();
+        boardMap.put("boardList", boardList);
+        boardMap.put("boardCnt", boardCnt);
+
+        return boardMap;
     }
 
     public Map<String, Object> selectBoardDetail(String boardNo) {

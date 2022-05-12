@@ -23,6 +23,10 @@
             </tbody>
         </table>
     </div>
+
+    <nav id="nav_page">
+    </nav>
+
     <div class="pull-right">
         <button type="button" class="btn btn-sm btn-primary">등록</button>
     </div>

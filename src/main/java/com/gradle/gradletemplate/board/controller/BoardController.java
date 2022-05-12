@@ -1,6 +1,7 @@
 package com.gradle.gradletemplate.board.controller;
 
 import com.gradle.gradletemplate.board.service.BoardService;
+import com.gradle.gradletemplate.board.vo.BoardVO;
 import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,11 +32,11 @@ public class BoardController {
 
     @RequestMapping(value = "/board/selectBoardList", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
-    public ModelAndView selectBoardList() {
+    public ModelAndView selectBoardList(BoardVO paramVo) {
         ModelAndView mv = new ModelAndView();
-        List<Map<String, Object>> boardList = new ArrayList<Map<String, Object>>();
-        boardList = boardService.selectBoardList();
-        mv.addObject("boardList", boardList);
+        Map<String, Object> boardMap = new HashMap<>();
+        boardMap = boardService.selectBoardList();
+        mv.addObject("boardMap", boardMap);
         mv.setViewName("jsonView");
         return mv;
     }

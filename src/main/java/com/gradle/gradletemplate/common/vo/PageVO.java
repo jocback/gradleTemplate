@@ -1,0 +1,18 @@
+package com.gradle.gradletemplate.common.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class PageVO {
+
+
+    private String pageNo;
+    private String totalCnt;
+
+}
