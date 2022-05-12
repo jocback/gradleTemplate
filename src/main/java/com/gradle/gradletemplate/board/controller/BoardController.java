@@ -32,10 +32,10 @@ public class BoardController {
 
     @RequestMapping(value = "/board/selectBoardList", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
-    public ModelAndView selectBoardList(BoardVO paramVo) {
+    public ModelAndView selectBoardList(BoardVO paramVO) {
         ModelAndView mv = new ModelAndView();
         Map<String, Object> boardMap = new HashMap<>();
-        boardMap = boardService.selectBoardList();
+        boardMap = boardService.selectBoardList(paramVO);
         mv.addObject("boardMap", boardMap);
         mv.setViewName("jsonView");
         return mv;

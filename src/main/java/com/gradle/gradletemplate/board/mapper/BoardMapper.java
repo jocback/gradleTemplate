@@ -11,9 +11,9 @@ public interface BoardMapper {
     // 샘플 조회
     String selectTest();
 
-    int getBoardCnt();
+    int getBoardCnt(BoardVO paramVO);
 
-    List<BoardVO> selectBoardList();
+    List<BoardVO> selectBoardList(BoardVO paramVO);
 
     Map<String, Object> selectBoardDetail(String boardNo);
 }

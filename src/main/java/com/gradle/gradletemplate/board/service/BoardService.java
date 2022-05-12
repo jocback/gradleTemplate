@@ -20,10 +20,10 @@ public class BoardService {
         return boardMapper.selectTest();
     }
 
-    public Map<String, Object> selectBoardList() {
+    public Map<String, Object> selectBoardList(BoardVO paramVO) {
         List<BoardVO> boardList = new ArrayList<BoardVO>();
-        int boardCnt = boardMapper.getBoardCnt();
-        boardList = boardMapper.selectBoardList();
+        int boardCnt = boardMapper.getBoardCnt(paramVO);
+        boardList = boardMapper.selectBoardList(paramVO);
         Map<String, Object> boardMap = new HashMap<>();
         boardMap.put("boardList", boardList);
         boardMap.put("boardCnt", boardCnt);

@@ -6,12 +6,12 @@
         select 'test'
     </select>
 
-    <select id="getBoardCnt" resultType="int">
+    <select id="getBoardCnt" parameterType="com.gradle.gradletemplate.board.vo.BoardVO" resultType="int">
         SELECT COUNT(*) CNT
         FROM BOARD
     </select>
 
-    <select id="selectBoardList" resultType="com.gradle.gradletemplate.board.vo.BoardVO">
+    <select id="selectBoardList" parameterType="com.gradle.gradletemplate.board.vo.BoardVO" resultType="com.gradle.gradletemplate.board.vo.BoardVO">
         SELECT BOARD_NO
              , BOARD_TYPE
              , TITLE
@@ -22,6 +22,7 @@
              , LIKES
              , COUNTS
         FROM BOARD
+        LIMIT #{startPage}, #{perPage}
     </select>
 
     <select id="selectBoardDetail" parameterType="string" resultType="map">
