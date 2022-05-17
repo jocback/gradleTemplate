@@ -36,4 +36,17 @@ public class BoardService {
         boardMap = boardMapper.selectBoardDetail(boardNo);
         return boardMap;
     }
+
+    public void insertBoard(BoardVO paramVO) {
+        boardMapper.insertBoard(paramVO);
+    }
+
+    public void updateBoard(BoardVO paramVO) {
+        boardMapper.updateBoard(paramVO);
+    }
+
+    public void deletBoard(BoardVO paramVO) {
+        boardMapper.deleteBoard(paramVO);
+    }
+
 }

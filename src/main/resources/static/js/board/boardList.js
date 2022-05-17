@@ -5,6 +5,9 @@ var boardList = {
         boardList.selectBoardList();
     },
     bind : function() {
+        $("#btn_reg").on('click', function(){
+           common.goPage("/board/boardDetail");
+        });
     },
     selectBoardList(pageNo) {
         boardList.pageNo = pageNo;
@@ -26,9 +29,9 @@ var boardList = {
     drawBoardList(dat) {
         var html = '';
         $.each(dat.boardList, function(i, v){
-            html += '<tr>';
+            html += '<tr onclick="boardList.goBoardDetail(\''+v.boardNo+'\')">';
             html += '<td>'+v.boardNo+'</td>';
-            html += '   <td onclick="boardList.goBoardDetail(\''+v.boardNo+'\')">'+v.boardType+'</td>';
+            html += '   <td>'+v.boardType+'</td>';
             html += '   <td>'+v.title+'</td>';
             html += '   <td>'+v.contents+'</td>';
             html += '   <td>'+v.userId+'</td>';

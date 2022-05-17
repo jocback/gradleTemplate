@@ -58,4 +58,31 @@ public class BoardController {
         mv.setViewName("jsonView");
         return mv;
     }
+
+    @RequestMapping(value = "/board/insertBoard", method = {RequestMethod.POST, RequestMethod.GET})
+    @ResponseBody
+    public ModelAndView insertBoard(BoardVO paramVO) {
+        ModelAndView mv = new ModelAndView();
+        boardService.insertBoard(paramVO);
+        mv.setViewName("jsonView");
+        return mv;
+    }
+
+    @RequestMapping(value = "/board/updateBoard", method = {RequestMethod.POST, RequestMethod.GET})
+    @ResponseBody
+    public ModelAndView updateBoard(BoardVO paramVO) {
+        ModelAndView mv = new ModelAndView();
+        boardService.updateBoard(paramVO);
+        mv.setViewName("jsonView");
+        return mv;
+    }
+
+    @RequestMapping(value = "/board/deleteBoard", method = {RequestMethod.POST, RequestMethod.GET})
+    @ResponseBody
+    public ModelAndView deleteBoard(BoardVO paramVO) {
+        ModelAndView mv = new ModelAndView();
+        boardService.deletBoard(paramVO);
+        mv.setViewName("jsonView");
+        return mv;
+    }
 }

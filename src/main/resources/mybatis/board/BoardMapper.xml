@@ -22,6 +22,7 @@
              , LIKES
              , COUNTS
         FROM BOARD
+        ORDER BY CREATED_TIME DESC
         LIMIT #{startPage}, #{perPage}
     </select>
 
@@ -38,4 +39,43 @@
         FROM BOARD
         WHERE BOARD_NO = #{boardNo}
     </select>
+
+    <insert id="insertBoard" parameterType="com.gradle.gradletemplate.board.vo.BoardVO">
+        INSERT INTO board
+        (BOARD_TYPE
+        , TITLE
+        , CONTENTS
+        , USER_ID
+        , CREATED_TIME
+        , UPDATED_TIME
+        , LIKES
+        , COUNTS)
+        VALUES(#{boardType}
+              , #{title}
+              , #{contents}
+              , 'test'
+              , now()
+              , now()
+              , 0
+              , 0)
+    </insert>
+
+    <update id="updateBoard" parameterType="com.gradle.gradletemplate.board.vo.BoardVO">
+        UPDATE board
+        SET
+            BOARD_TYPE = #{boardType}
+          , TITLE = #{title}
+          , CONTENTS = #{contents}
+          , UPDATED_TIME = now()
+          , LIKES = 0
+          , COUNTS = 0
+        WHERE
+            BOARD_NO = #{boardNo}
+    </update>
+
+    <delete id="deleteBoard" parameterType="com.gradle.gradletemplate.board.vo.BoardVO">
+        DELETE
+        FROM board
+        WHERE BOARD_NO = #{boardNo}
+    </delete>
 </mapper>

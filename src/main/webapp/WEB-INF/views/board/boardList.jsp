@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="col-sm-offset-3 col-sm-9 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Dashboard</h1>
+    <h1 class="page-header">게시판</h1>
 
     <div class="table-responsive">
         <table class="table table-bordered dataTable">
@@ -29,7 +29,7 @@
     </nav>
 
     <div class="pull-right">
-        <button type="button" class="btn btn-sm btn-primary">등록</button>
+        <button type="button" class="btn btn-sm btn-primary" id="btn_reg">등록</button>
     </div>
 
     <form id="frm_test" action="/board/boardList">

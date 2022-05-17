@@ -16,4 +16,11 @@ public interface BoardMapper {
     List<BoardVO> selectBoardList(BoardVO paramVO);
 
     Map<String, Object> selectBoardDetail(String boardNo);
+
+    int insertBoard(BoardVO paramVO);
+
+    int updateBoard(BoardVO paramVO);
+
+    int deleteBoard(BoardVO paramVO);
+
 }
