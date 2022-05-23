@@ -9,7 +9,7 @@ var boardList = {
            common.goPage("/board/boardDetail");
         });
     },
-    selectBoardList(pageNo) {
+    selectBoardList: function(pageNo) {
         boardList.pageNo = pageNo;
         var param = {
             pageNo : boardList.pageNo
@@ -26,7 +26,7 @@ var boardList = {
             }
         });
     },
-    drawBoardList(dat) {
+    drawBoardList: function(dat) {
         var html = '';
         $.each(dat.boardList, function(i, v){
             html += '<tr onclick="boardList.goBoardDetail(\''+v.boardNo+'\')">';
@@ -42,7 +42,7 @@ var boardList = {
 
     },
     // 게시판 상세보기
-    goBoardDetail(boardNo) {
+    goBoardDetail: function(boardNo) {
         var param = {
             boardNo : boardNo
         }
