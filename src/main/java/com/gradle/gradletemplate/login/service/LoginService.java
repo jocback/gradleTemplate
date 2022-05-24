@@ -2,6 +2,7 @@ package com.gradle.gradletemplate.login.service;
 
 import com.gradle.gradletemplate.login.mapper.LoginMapper;
 import com.gradle.gradletemplate.login.vo.UserVO;
+import com.gradle.gradletemplate.util.CryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,7 @@ public class LoginService {
     private LoginMapper loginMapper;
 
     public void insertUser(UserVO paramVO) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        paramVO.setUserPw(passwordEncoder.encode(paramVO.getUserPw()));
+        paramVO.setUserPw(CryptUtil.BCryptEnc(paramVO.getUserPw()));
         loginMapper.insertUser(paramVO);
     }
 }

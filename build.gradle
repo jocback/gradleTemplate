@@ -64,6 +64,9 @@ dependencies {
     // spring-context-support
     implementation 'org.springframework:spring-context-support:5.3.19'
 
+    // spring-security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
 }
 
 tasks.named('test') {
