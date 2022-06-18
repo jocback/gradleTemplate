@@ -16,7 +16,7 @@ var register = {
             data: param,
             success: function(res) {
                 alert("등록되었습니다.")
-                common.goPage("/login/login");
+                common.goPage("/login/loginForm");
             }
         });
     }

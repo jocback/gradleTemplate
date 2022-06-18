@@ -9,6 +9,10 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/layouts/footer.jsp"/>
     </definition>
 
+    <definition name="layout-empty" template="/WEB-INF/tiles/layouts/layout-empty.jsp">
+        <put-attribute name="body" value=""/>
+    </definition>
+
     <definition name="index" extends="layout-tiles">
         <put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
     </definition>
@@ -27,4 +31,8 @@
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
         <put-attribute name="includeJs" value="/{1}/{2}"/>
     </definition>
+
+<!--    <definition name="/" extends="login-empty">-->
+<!--        <put-attribute name="body" value="/WEB-INF/views/login/loginForm.jsp"/>-->
+<!--    </definition>-->
 </tiles-definitions>

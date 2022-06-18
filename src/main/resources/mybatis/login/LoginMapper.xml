@@ -20,4 +20,17 @@
               , now()
               , now())
     </insert>
+
+    <select id="selectUser" parameterType="com.gradle.gradletemplate.login.vo.UserVO" resultType="com.gradle.gradletemplate.login.vo.UserVO">
+        select USER_ID
+             , USER_PW
+             , USER_NAME
+             , PHONE
+             , EMAIL
+             , ROLE
+             , CREATED_TIME
+             , UPDATE_TIME
+        from user
+        where USER_ID = #{userId}
+    </select>
 </mapper>

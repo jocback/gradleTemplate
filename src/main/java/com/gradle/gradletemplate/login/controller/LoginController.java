@@ -9,27 +9,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/login/login", method = {RequestMethod.GET, RequestMethod.POST})
+    // 로그인 페이지
+    @RequestMapping(value = "/", method = {RequestMethod.GET})
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("login/loginForm");
+        return mv;
+    }
+    // 로그인 페이지
+    @RequestMapping(value = "/login/loginForm", method = {RequestMethod.GET})
     public ModelAndView login() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("login/login");
+        mv.setViewName("login/loginForm");
         return mv;
     }
 
-    @RequestMapping(value = "/login/loginProcess", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView loginProcess() {
+    @RequestMapping(value = "/login/selectUser", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public ModelAndView selectUser(HttpServletRequest request, HttpServletResponse response, UserVO userVO) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("jsonView");
-        mv.addObject("result", "loginProcess");
+        mv.addObject("user", loginService.selectUser(userVO));
         return mv;
     }
 
+    // 회원가입페이지
     @RequestMapping(value = "/login/register", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView register() {
         ModelAndView mv = new ModelAndView();
@@ -37,6 +50,7 @@ public class LoginController {
         return mv;
     }
 
+    // 회원가입
     @RequestMapping(value = "/login/signUp", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public ModelAndView signUp(UserVO paramVO) {

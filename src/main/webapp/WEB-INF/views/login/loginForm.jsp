@@ -12,18 +12,18 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/signin.css"/>
 </head>
 <div class="container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    <h2 class="form-signin-heading">Gradle Sign in</h2>
+    <form id="frm_login" method="post">
+    <label for="userId" class="sr-only">Email address</label>
+        <input type="email" id="userId" name="userId" class="form-control" placeholder="Email address">
+        <label for="userPw" class="sr-only">Password</label>
+        <input type="password" id="userPw" name="userPw" class="form-control" placeholder="Password">
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="btn_signin">Sign in</button>
     </form>
 </div>
 </html>

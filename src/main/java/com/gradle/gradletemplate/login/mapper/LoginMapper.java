@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface LoginMapper {
 
     void insertUser(UserVO paramVO);
+
+    UserVO selectUser(UserVO userVO);
 }

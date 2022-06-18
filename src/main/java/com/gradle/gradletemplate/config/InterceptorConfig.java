@@ -13,6 +13,7 @@ import java.util.*;
 public class InterceptorConfig implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("preHandle : "+request.getRequestURL());
         return true;
 //        return HandlerInterceptor.super.preHandle(request, response, handler);
     }

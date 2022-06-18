@@ -29,8 +29,8 @@ public class GradleTemplateApplication {
         return new MappingJackson2JsonView();
     }
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
+//    @Bean
+//    public static PropertySourcesPlaceholderConfigurer propertyPlaceHolderConfigurer() {
+//        return new PropertySourcesPlaceholderConfigurer();
+//    }
 }
