@@ -20,7 +20,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
         ResponseDataDTO responseDataDTO = new ResponseDataDTO();
         responseDataDTO.setCode(ResponseDataCode.ERROR);
         responseDataDTO.setStatus(ResponseDataCode.ERROR);
-        responseDataDTO.setMessage("아이디 혹은 비밀번호가 일치하지 않습니다.");
+        responseDataDTO.setMessage(exception.getMessage());
 
         response.setCharacterEncoding("UTF-8");
         response.setStatus(HttpServletResponse.SC_OK);

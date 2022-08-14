@@ -8,8 +8,6 @@ var loginForm = {
         });
     },
     signin: function() {
-
-        // common.goPage("/login", "frm_login");
         $.ajax({
            url: '/login',
             type: 'POST',
@@ -19,15 +17,15 @@ var loginForm = {
                 userPw: $("#userPw").val()
             },
             success: function(res){
+               if(res.code=='200'){
+                   alert("로그인 되었습니다.");
+                   common.goPage("/board/boardList");
+               } else {
+                   alert(res.message);
+               }
                console.log(res);
             }
         });
-
-        // var param = {
-        //     userId: $("#userId").val(),
-        //     userPw: $("#userPw").val()
-        // }
-        // common.goPage('/login/loginProcess', param);
     }
 }
 

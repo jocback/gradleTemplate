@@ -18,15 +18,22 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
+    /**
+     * @title  게시판리스트 화면
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/boardList", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView boardList() {
         ModelAndView mv = new ModelAndView();
-        String str = boardService.selectTest();
-        System.out.println(str);
         mv.setViewName("board/boardList");
         return mv;
     }
 
+    /**
+     * @title 게시판 목록 조회
+     * @param  BoardVO
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/selectBoardList", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public ModelAndView selectBoardList(BoardVO paramVO) {
@@ -38,6 +45,10 @@ public class BoardController {
         return mv;
     }
 
+    /**
+     * @title 게시판 목록 상세 화면
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/boardDetail", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView boardDetail() {
         ModelAndView mv = new ModelAndView();
@@ -45,6 +56,11 @@ public class BoardController {
         return mv;
     }
 
+    /**
+     * @title 게시판 목록 상세 조회
+     * @param  String
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/selectBoardDetail", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public ModelAndView selectBoardDetail(String boardNo) {
@@ -56,6 +72,11 @@ public class BoardController {
         return mv;
     }
 
+    /**
+     * @title 게시판 등록
+     * @param  BoardVO
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/insertBoard", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public ModelAndView insertBoard(BoardVO paramVO) {
@@ -65,6 +86,11 @@ public class BoardController {
         return mv;
     }
 
+    /**
+     * @title 게시판 수정
+     * @param  BoardVO
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/updateBoard", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public ModelAndView updateBoard(BoardVO paramVO) {
@@ -74,6 +100,11 @@ public class BoardController {
         return mv;
     }
 
+    /**
+     * @title 게시판 삭제
+     * @param  BoardVO
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/board/deleteBoard", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public ModelAndView deleteBoard(BoardVO paramVO) {

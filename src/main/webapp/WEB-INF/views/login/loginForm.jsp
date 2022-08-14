@@ -20,7 +20,7 @@
         <input type="password" id="userPw" name="userPw" class="form-control" placeholder="Password">
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" value="remember-me"> ID 저장
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="button" id="btn_signin">Sign in</button>

@@ -3,11 +3,11 @@ package com.gradle.gradletemplate.config;
 import com.gradle.gradletemplate.config.security.CustomAuthenticationFailureHandler;
 import com.gradle.gradletemplate.config.security.CustomAuthenticationSuccessHandler;
 import com.gradle.gradletemplate.config.security.CustomUserDetailsService;
+import com.gradle.gradletemplate.config.security.LoginProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -29,6 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 
+    @Autowired
+    private LoginProvider loginProvider;
+
     // 인증 예외처리
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -41,7 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/board/**").hasAuthority("MEMBER")
-//                .anyRequest().authenticated()
                 .anyRequest().permitAll()
 
                 .and()
@@ -54,10 +56,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(customAuthenticationFailureHandler)
                 .permitAll()
 
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true).deleteCookies("JSESSIONID")
+
                 // ajax 통신 가능하도록
                 .and()
                 .csrf()
                 .disable()
+                .authenticationProvider(loginProvider)
         ;
     }
 
@@ -66,10 +75,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(customUserDetailsService)
-                .passwordEncoder(passwordEncoder());
-    }
 }

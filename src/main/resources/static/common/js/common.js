@@ -29,12 +29,12 @@ var common = {
             }
         }
     },
+
     /***************************************************************************
      * @ description : 공백 객체 체크
      * @ param : obj : 체크할 대상
      * @ usage : common.isEmpty({});
      **************************************************************************/
-
     isEmpty: function (obj) {
         if (obj === null || obj === undefined || obj.trim == '') {
             return true
@@ -46,5 +46,14 @@ var common = {
     },
     comfirmFun: function (obj) {
         $("#comfirmFun").attr("onclick", obj);
+    },
+
+    /***************************************************************************
+     * @ description : 로그아웃
+     **************************************************************************/
+    logout : function() {
+        if(confirm("로그아웃 하시겠습니까?")) {
+            common.goPage("/logout");
+        }
     }
 }

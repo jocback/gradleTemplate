@@ -1,12 +1,17 @@
 package com.gradle.gradletemplate.config;
 
 import com.google.gson.Gson;
+import com.gradle.gradletemplate.login.vo.UserVO;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.security.Security;
 import java.util.*;
 
 @Component
@@ -14,6 +19,14 @@ public class InterceptorConfig implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle : "+request.getRequestURL());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Object obj = null;
+        UserVO user = new UserVO();
+        if(auth!=null){
+            obj = auth.getDetails();
+//            UserVO user = (UserVO) auth.getPrincipal();
+        }
+        HttpSession session = request.getSession();
         return true;
 //        return HandlerInterceptor.super.preHandle(request, response, handler);
     }
