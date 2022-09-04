@@ -4,6 +4,13 @@ var paging = {
         // var perPage;	// 한페이지 글수
         var pageCount = 10;		// 페이징에 노출되는 페이지 수
         // var currentPage;	// 현재 페이지
+        var totalPage;
+        let pageGroup;
+        let last;
+        let first;
+        let next;
+        let prev;
+
         if(common.isEmpty(perPage)) {
             perPage = 10;
         }
@@ -15,24 +22,25 @@ var paging = {
         }
 
 
-        var totalPage = Math.ceil(totalCnt / perPage);		// 11/10 = 2
+        totalPage = Math.ceil(totalCnt / perPage);		// 11/10 = 2
 
         if (totalPage < pageCount) {
             pageCount = totalPage;
         }
 
-        let pageGroup = Math.ceil(currentPage / pageCount);		// 11/10 = 2
-        let last = pageGroup * pageCount;						// 2*10 = 20
+        pageGroup = Math.ceil(currentPage / pageCount);		// 11/10 = 2
+        last = pageGroup * pageCount;						// 2*10 = 20
+
 
         if (last > totalPage) {
             last = totalPage;
         }
 
-        let first = last - (pageCount - 1);						// 20-(10-1) = 11
-        let next = last + 1;										// 21
-        let prev = first - 1;										// 10
+        first = last - (pageCount - 1);						// 20-(10-1) = 11
+        next = last + 1;										// 21
+        prev = first - 1;										// 10
 
-        let pageHtml = '';
+        pageHtml = '';
 
         pageHtml += '<ul class="pagination">';
         pageHtml += '';
