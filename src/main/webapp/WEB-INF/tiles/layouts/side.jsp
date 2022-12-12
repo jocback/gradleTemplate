@@ -9,8 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="/board/BoardList">게시판<span class="sr-only">(current)</span></a></li>
-        <li><a href="/music/MusicList">악보</a></li>
+        <li class="active"><a href="/board/boardList">게시판<span class="sr-only">(current)</span></a></li>
+        <li><a href="/socket/socketPage">웹소켓</a></li>
         <li><a href="#">메뉴2</a></li>
         <li><a href="#">메뉴3</a></li>
     </ul>

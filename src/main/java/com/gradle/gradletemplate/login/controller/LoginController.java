@@ -26,10 +26,12 @@ public class LoginController {
         return mv;
     }
     // 로그인 페이지
-    @RequestMapping(value = "/login/loginForm", method = {RequestMethod.GET})
-    public ModelAndView login() {
+    @RequestMapping(value = "/login/loginForm", method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView login(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
+        String test = request.getParameter("test");
         mv.setViewName("login/loginForm");
+        mv.addObject("test", test);
         return mv;
     }
 

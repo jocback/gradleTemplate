@@ -19,6 +19,48 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir "src/main/resources"
+            srcDir "src/main/java"
+            includes = ["**/*.properties"
+                    ,"**/*.yml"
+                    ,"**/*.xls"
+                    ,"**/*.xlsx"
+                    ,"**/*.doc"
+                    ,"**/*.docx"
+                    ,"**/*.xml"
+                    ,"**/*.js"
+                    ,"**/*.css"
+            ]
+        }
+    }
+}
+
+//        <resources>
+//        <resource>
+//        <directory>src/main/java</directory>
+//				<includes>
+//					<include>**/*.properties</include>
+//					<include>**/*.yml</include>
+//					<include>**/*.xls</include>
+//					<include>**/*.xlsx</include>
+//					<include>**/*.doc</include>
+//					<include>**/*.docx</include>
+//					<include>**/*.xml</include>
+//				</includes>
+//        </resource>
+//			<resource>
+//				<directory>src/main/resources</directory>
+//				<includes>
+//					<include>**/*.*</include>
+//					<include>**/*.bcmap</include>
+//				</includes>
+//        </resource>
+//		</resources>
+
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
@@ -34,6 +76,7 @@ dependencies {
 
     // JSTL
     implementation 'javax.servlet:jstl'
+    implementation 'org.springframework.security:spring-security-taglibs:5.7.0'
 
     // MySql
     implementation 'mysql:mysql-connector-java:8.0.29'
@@ -71,8 +114,21 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-batch'
 //    implementation 'org.springframework.boot:spring-boot-starter-quartz'
 
+    // websocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // devtools
+    implementation 'org.springframework.boot:spring-boot-devtools:2.7.4'
+
+
+
+
+
 }
 
 test {
     useJUnitPlatform()
+    processResources {
+        duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+    }
 }

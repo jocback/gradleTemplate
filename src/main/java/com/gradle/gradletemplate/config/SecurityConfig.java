@@ -42,9 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
 
         http
+			.headers(headers -> headers
+				.cacheControl(cache->cache.disable()))
+
                 .authorizeRequests()
                 .antMatchers("/board/**").hasAuthority("MEMBER")
                 .anyRequest().permitAll()
+
+			.and()
+			.cors()
 
                 .and()
                 .formLogin()
@@ -67,6 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authenticationProvider(loginProvider)
+
         ;
     }
 
