@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.cacheControl(cache->cache.disable()))
 
                 .authorizeRequests()
-                .antMatchers("/board/**").hasAuthority("MEMBER")
+//                .antMatchers("/board/**").hasAuthority("MEMBER")
                 .anyRequest().permitAll()
 
 			.and()
