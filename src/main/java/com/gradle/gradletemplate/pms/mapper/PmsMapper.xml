@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gradle.gradletemplate.pms.mapper.PmsMapper">
+
+    <select id="getPmsCnt" parameterType="paramMap" resultType="int">
+        SELECT COUNT(*) CNT
+        FROM pmslist
+    </select>
+
+    <select id="selectPmsList" parameterType="paramMap" resultType="camelMap">
+		SELECT PMS_NO
+			 , DEPTH1
+			 , DEPTH2
+			 , DEPTH3
+			 , PMS_DESC
+			 , STRT_DATE
+			 , END_DATE
+			 , PROC_RATE
+		FROM pmslist
+    </select>
+
+	<select id="getDatePeriod" parameterType="paramMap" resultType="camelMap">
+		SELECT MIN(STRT_DATE) MIN_DATE
+			 , MAX(END_DATE) MAX_DATE
+		FROM pmslist
+		WHERE pms_no = 25
+	</select>
+</mapper>

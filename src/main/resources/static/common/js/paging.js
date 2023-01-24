@@ -78,7 +78,5 @@ var paging = {
         }else{
             $(obj).html(pageHtml);
         }
-        console.log(pageHtml);
-
     }
 }
